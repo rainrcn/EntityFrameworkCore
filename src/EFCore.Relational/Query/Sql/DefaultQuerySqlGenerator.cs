@@ -1394,7 +1394,14 @@ namespace Microsoft.EntityFrameworkCore.Query.Sql
             return isNullExpression;
         }
 
-        public Expression VisitNullable([NotNull] NullableExpression nullableExpression)
+        /// <summary>
+        ///     Visit a NullableExpression.
+        /// </summary>
+        /// <param name="nullableExpression"> The nullable expression. </param>
+        /// <returns>
+        ///     An Expression.
+        /// </returns>
+        public virtual Expression VisitNullable(NullableExpression nullableExpression)
         {
             Visit(nullableExpression.Operand);
 
